@@ -1,3 +1,14 @@
+video at https://www.youtube.com/watch?v=UqzNlcw1U7s
+refer at http://www.mattsheckells.com/research/
+
+As part of our lab’s work on aerial manipulation, I’ve developed a ROS package for tracking the 3D pose of an object using a monocular camera.  The package takes as input a textured CAD model of the object to be tracked.  For a given image, point-based features are extracted and matched to a virtual rendering of the CAD model (using its last known pose).  A RANSAC+PnP algorithm uses these 2D-3D correspondences to find the new pose of the object.  The pose of the object is initialized by matching an input image to several images in a finite set of renderings of the CAD model.  The image with the largest number of geometrically consistent inliers is taken to be the pose of the object.  A constant velocity motion model or Extended Kalman Filter which fuses IMU measurements (if an IMU is available) can be used for more reliable tracking.
+
+The package also has the capability to perform edge-based tracking (based on the work of Choi and Christensen in Real-time 3D model-based tracking using edge and keypoint features for robotic manipulation).
+
+This package can also be used for image-based localization in a known map.
+
+
+
 #MeshLocalize: Model-based object tracking in 3D for ROS
 
 #1. Installation
